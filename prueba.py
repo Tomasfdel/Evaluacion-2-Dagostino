@@ -1,10 +1,33 @@
 # Evaluacion-FdeLuco-Moline 
 
-celdaNula = Celda()
-celdaNula.set_padre_izq(celdaNula)
-celdaNula.set_padre_der(celdaNula)
-celdaNula.set_hijo_izq(celdaNula)
-celdaNula.set_hijo_der(celdaNula)
+class Celda:
+def __init__ (self):
+		self.llena = False
+		self.valor = -1
+
+def set_parientes(self, padrei, padred, hijoi, hijod):
+  self.padre_izq=padrei
+  self.padre_izq=padrei
+  self.padre_izq=padrei
+
+def check_celda (self):
+  self.check_padre_izq()
+  self.check_padre_der()
+  self.check_hijos()
+  
+  
+
+
+	def set_valor (self, n):
+		self.valor = n
+		self.llena = True
+
+	def estaLlena (self):
+		return self.llena
+
+
+
+
 
 celda00 = Celda()
 celda10 = Celda()
@@ -27,108 +50,3 @@ celda52 = Celda()
 celda53 = Celda()
 celda54 = Celda()
 celda55 = Celda()
-
-celda00.set_padre_izq(celdaNula)
-celda00.set_padre_der(celdaNula)
-celda00.set_hijo_izq(celda10)
-celda00.set_hijo_der(celda11)
-
-celda10.set_padre_izq(celdaNula)
-celda10.set_padre_der(celda00)
-celda10.set_hijo_izq(celda20)
-celda10.set_hijo_der(celda21)
-
-celda11.set_padre_izq(celda00)
-celda11.set_padre_der(celdaNula)
-celda11.set_hijo_izq(celda21)
-celda11.set_hijo_der(celda22)
-
-celda20.set_padre_izq(celdaNula)
-celda20.set_padre_der(celda10)
-celda20.set_hijo_izq(celda30)
-celda20.set_hijo_der(celda31)
-
-celda21.set_padre_izq(celda10)
-celda21.set_padre_der(celda11)
-celda21.set_hijo_izq(celda31)
-celda21.set_hijo_der(celda32)
-
-celda22.set_padre_izq(celda11)
-celda22.set_padre_der(celdaNula)
-celda22.set_hijo_izq(celda32)
-celda22.set_hijo_der(celda33)
-
-celda30.set_padre_izq(celdaNula)
-celda30.set_padre_der(celda20)
-celda30.set_hijo_izq(celda40)
-celda30.set_hijo_der(celda41)
-
-celda31.set_padre_izq(celda20)
-celda31.set_padre_der(celda21)
-celda31.set_hijo_izq(celda41)
-celda31.set_hijo_der(celda42)
-
-celda32.set_padre_izq(celda21)
-celda32.set_padre_der(celda22)
-celda32.set_hijo_izq(celda42)
-celda32.set_hijo_der(celda43)
-
-celda33.set_padre_izq(celda22)
-celda33.set_padre_der(celdaNula)
-celda33.set_hijo_izq(celda43)
-celda33.set_hijo_der(celda44)
-
-celda40.set_padre_izq(celdaNula)
-celda40.set_padre_der(celda30)
-celda40.set_hijo_izq(celda50)
-celda40.set_hijo_der(celda51)
-
-celda41.set_padre_izq(celda30)
-celda41.set_padre_der(celda31)
-celda41.set_hijo_izq(celda51)
-celda41.set_hijo_der(celda52)
-
-celda42.set_padre_izq(celda31)
-celda42.set_padre_der(celda32)
-celda42.set_hijo_izq(celda52)
-celda42.set_hijo_der(celda53)
-
-celda43.set_padre_izq(celda32)
-celda43.set_padre_der(celda33)
-celda43.set_hijo_izq(celda53)
-celda43.set_hijo_der(celda54)
-
-celda44.set_padre_izq(celda33)
-celda44.set_padre_der(celdaNula)
-celda44.set_hijo_izq(celda54)
-celda44.set_hijo_der(celda55)
-
-celda50.set_padre_izq(celdaNula)
-celda50.set_padre_der(celda40)
-celda50.set_hijo_izq(celdaNula)
-celda50.set_hijo_der(celdaNula)
-
-celda51.set_padre_izq(celda40)
-celda51.set_padre_der(celda41)
-celda51.set_hijo_izq(celdaNula)
-celda51.set_hijo_der(celdaNula)
-
-celda52.set_padre_izq(celda41)
-celda52.set_padre_der(celda42)
-celda52.set_hijo_izq(celdaNula)
-celda52.set_hijo_der(celdaNula)
-
-celda53.set_padre_izq(celda42)
-celda53.set_padre_der(celda43)
-celda53.set_hijo_izq(celdaNula)
-celda53.set_hijo_der(celdaNula)
-
-celda54.set_padre_izq(celda43)
-celda54.set_padre_der(celda44)
-celda54.set_hijo_izq(celdaNula)
-celda54.set_hijo_der(celdaNula)
-
-celda55.set_padre_izq(celda44)
-celda55.set_padre_der(celdaNula)
-celda55.set_hijo_izq(celdaNula)
-celda55.set_hijo_der(celdaNula)
