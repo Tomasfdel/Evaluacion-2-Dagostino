@@ -52,7 +52,14 @@ class Celda:
 					self.hijo_der.set_valor(self.valor-self.hijo_izq.valor)
 					self.hijo_der.check_celda()				
 	
-  
+	def corregir_celda(self):
+		if(self.estaLlena()):
+			if(self.hijo_izq.estaLlena() && self.hijo_der.estaLlena()):
+				if(self.valor == self.hijo_izq.valor + self.hijo_der.valor ):
+					return 1
+					
+		return 0
+		
 	def set_valor (self, n):
 		self.valor = n
 		self.llena = True
@@ -105,7 +112,13 @@ class Celda_Abajo (Celda):
   		self.check_padre_izq()
   		self.check_padre_der()
   		
-  		
+  	def corregir_celda(self):
+		if(self.estaLlena()):
+			return 1
+		else:
+			return 0
+		
+		
   		
 class Celda_Abajo_Izq (Celda):
 	def set_parientes(self, padred):
@@ -114,7 +127,12 @@ class Celda_Abajo_Izq (Celda):
 	def check_celda (self):
   		self.check_padre_der()
   		
-  		
+  	def corregir_celda(self):
+		if(self.estaLlena()):
+			return 1
+		else:
+			return 0
+			
   		
 class Celda_Abajo_Der (Celda):
 	def set_parientes(self, padrei):
@@ -124,47 +142,111 @@ class Celda_Abajo_Der (Celda):
 	def check_celda (self):
   		self.check_padre_izq()
 
-  		
-celda00 = Celda_Sup()
-celda10 = Celda_Izq()
-celda11 = Celda_Der()
-celda20 = Celda_Izq()
-celda21 = Celda()
-celda22 = Celda_Der()
-celda30 = Celda_Izq()
-celda31 = Celda()
-celda32 = Celda()
-celda33 = Celda_Der()
-celda40 = Celda_Izq()
-celda41 = Celda()
-celda42 = Celda()
-celda43 = Celda()
-celda44 = Celda_Der()
-celda50 = Celda_Abajo_Izq()
-celda51 = Celda_Abajo()
-celda52 = Celda_Abajo()
-celda53 = Celda_Abajo()
-celda54 = Celda_Abajo()
-celda55 = Celda_Abajo_Der()
+	def corregir_celda(self):
+		if(self.estaLlena()):
+			return 1
+		else:
+			return 0
+			
+			
+			
+			
+			
+			
+class Malilinitu:
+    def __init__(self):
+		self.checksum=0
+		self.celda00 = Celda_Sup()
+		self.celda10 = Celda_Izq()
+		self.celda11 = Celda_Der()
+		self.celda20 = Celda_Izq()
+		self.celda21 = Celda()
+		self.celda22 = Celda_Der()
+		self.celda30 = Celda_Izq()
+		self.celda31 = Celda()
+		self.celda32 = Celda()
+		self.celda33 = Celda_Der()
+		self.celda40 = Celda_Izq()
+		self.celda41 = Celda()
+		self.celda42 = Celda()
+		self.celda43 = Celda()
+		self.celda44 = Celda_Der()
+		self.celda50 = Celda_Abajo_Izq()
+		self.celda51 = Celda_Abajo()
+		self.celda52 = Celda_Abajo()
+		self.celda53 = Celda_Abajo()
+		self.celda54 = Celda_Abajo()
+		self.celda55 = Celda_Abajo_Der()
 
-celda00.set_parientes(celda10, celda11)
-celda10.set_parientes(celda00, celda20, celda21)
-celda11.set_parientes(celda00, celda21, celda22)
-celda20.set_parientes(celda10, celda30, celda31)
-celda21.set_parientes(celda10, celda11, celda31, celda32)
-celda22.set_parientes(celda11, celda32, celda33)
-celda30.set_parientes(celda20, celda40, celda41)
-celda31.set_parientes(celda20, celda21, celda41, celda42)
-celda32.set_parientes(celda21, celda22, celda42, celda43)
-celda33.set_parientes(celda33, celda43, celda44)
-celda40.set_parientes(celda30, celda50, celda51)
-celda41.set_parientes(celda30, celda31, celda51, celda52)
-celda42.set_parientes(celda31, celda32, celda52, celda53)
-celda43.set_parientes(celda32, celda33, celda53, celda54)
-celda44.set_parientes(celda33, celda54, celda55)
-celda50.set_parientes(celda40)
-celda51.set_parientes(celda40, celda41)
-celda52.set_parientes(celda41, celda42)
-celda53.set_parientes(celda42, celda43)
-celda54.set_parientes(celda43, celda44)
-celda55.set_parientes(celda44)
+		self.celda00.set_parientes(self.celda10, self.celda11)
+		self.celda10.set_parientes(self.celda00, self.celda20, self.celda21)
+		self.celda11.set_parientes(self.celda00, self.celda21, self.celda22)
+		self.celda20.set_parientes(self.celda10, self.celda30, self.celda31)
+		self.celda21.set_parientes(self.celda10, self.celda11, self.celda31, self.celda32)
+		self.celda22.set_parientes(self.celda11, self.celda32, self.celda33)
+		self.celda30.set_parientes(self.celda20, self.celda40, self.celda41)
+		self.celda31.set_parientes(self.celda20, self.celda21, self.celda41, self.celda42)
+		self.celda32.set_parientes(self.celda21, self.celda22, self.celda42, self.celda43)
+		self.celda33.set_parientes(self.celda33, self.celda43, self.celda44)
+		self.celda40.set_parientes(self.celda30, self.celda50, self.celda51)
+		self.celda41.set_parientes(self.celda30, self.celda31, self.celda51, self.celda52)
+		self.celda42.set_parientes(self.celda31, self.celda32, self.celda52, self.celda53)
+		self.celda43.set_parientes(self.celda32, self.celda33, self.celda53, self.celda54)
+		self.celda44.set_parientes(self.celda33, self.celda54, self.celda55)
+		self.celda50.set_parientes(self.celda40)
+		self.celda51.set_parientes(self.celda40, self.celda41)
+		self.celda52.set_parientes(self.celda41, self.celda42)
+		self.celda53.set_parientes(self.celda42, self.celda43)
+		self.celda54.set_parientes(self.celda43, self.celda44)
+		self.celda55.set_parientes(self.celda44)
+
+    def control (self):
+        self.celda00.check_celda()
+		self.celda10.check_celda()
+		self.celda11.check_celda()
+		self.celda20.check_celda()
+		self.celda21.check_celda()
+		self.celda22.check_celda()
+		self.celda30.check_celda()
+		self.celda31.check_celda()
+		self.celda32.check_celda()
+		self.celda33.check_celda()
+		self.celda40.check_celda()
+		self.celda41.check_celda()
+		self.celda42.check_celda()
+		self.celda43.check_celda()
+		self.celda44.check_celda()
+		self.celda50.check_celda()
+		self.celda51.check_celda()
+		self.celda52.check_celda()
+		self.celda53.check_celda()
+		self.celda54.check_celda()
+		self.celda55.check_celda()
+
+    def corregir (self):
+        self.checksum= self.checksum + self.celda00.corregir_celda()
+		self.checksum= self.checksum + self.celda10.corregir_celda()
+		self.checksum= self.checksum + self.celda11.corregir_celda()
+		self.checksum= self.checksum + self.celda20.corregir_celda()
+		self.checksum= self.checksum + self.celda21.corregir_celda()
+		self.checksum= self.checksum + self.celda22.corregir_celda()
+		self.checksum= self.checksum + self.celda30.corregir_celda()
+		self.checksum= self.checksum + self.celda31.corregir_celda()
+		self.checksum= self.checksum + self.celda32.corregir_celda()
+		self.checksum= self.checksum + self.celda33.corregir_celda()
+		self.checksum= self.checksum + self.celda40.corregir_celda()
+		self.checksum= self.checksum + self.celda41.corregir_celda()
+		self.checksum= self.checksum + self.celda42.corregir_celda()
+		self.checksum= self.checksum + self.celda43.corregir_celda()
+		self.checksum= self.checksum + self.celda44.corregir_celda()
+		self.checksum= self.checksum + self.celda50.corregir_celda()
+		self.checksum= self.checksum + self.celda51.corregir_celda()
+		self.checksum= self.checksum + self.celda52.corregir_celda()
+		self.checksum= self.checksum + self.celda53.corregir_celda()
+		self.checksum= self.checksum + self.celda54.corregir_celda()
+		self.checksum= self.checksum + self.celda55.corregir_celda()
+		
+		if(self.checksum==21):
+			return True
+		else:
+			return False 
