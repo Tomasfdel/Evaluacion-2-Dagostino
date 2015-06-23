@@ -15,8 +15,44 @@ class Celda:
   		self.check_padre_izq()
   		self.check_padre_der()
   		self.check_hijos()
-  
+    
+	def check_padre_izq(self):
+		if(self.estaLlena()):
+			if(self.padre_izq.estaLlena()):
+				if(!(self.padre_izq.hijo_izq.estaLlena())):
+					self.padre_izq.hijo_izq.set_valor(self.padre_izq.valor-self.valor)
+					self.padre_izq.hijo_izq.check_celda()
+			
+			else:
+				if(self.padre_izq.hijo_izq.estaLlena()):
+					self.padre_izq.set_valor(self.padre_izq.hijo_izq.valor+self.valor)
+					self.padre_izq.check_celda()
+				
 
+	def check_padre_der(self):
+		if(self.estaLlena()):
+			if(self.padre_der.estaLlena()):
+				if(!(self.padre_der.hijo_der.estaLlena())):
+					self.padre_der.hijo_der.set_valor(self.padre_der.valor-self.valor)
+					self.padre_der.hijo_der.check_celda()
+			
+			else:
+				if(self.padre_der.hijo_der.estaLlena()):
+					self.padre_der.set_valor(self.padre_der.hijo_der.valor+self.valor)
+					self.padre_der.check_celda()
+						
+	def check_hijos(self):
+		if(self.estaLlena()):
+			if(self.hijo_der.estaLleno()):
+				if(!(self.hijo_izq.estaLleno())):
+					self.hijo_izq.set_valor(self.valor-self.hijo_der.valor)
+					self.hijo_izq.check_celda()
+			else
+				if(self.hijo_izq.estaLleno()):
+					self.hijo_der.set_valor(self.valor-self.hijo_izq.valor)
+					self.hijo_der.check_celda()				
+	
+  
 	def set_valor (self, n):
 		self.valor = n
 		self.llena = True
@@ -25,7 +61,7 @@ class Celda:
 		return self.llena
 
 
-
+		
 class Celda_Sup (Celda):
 	def set_parientes(self, hijoi, hijod):
   		self.hijo_izq=hijoi
