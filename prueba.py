@@ -19,7 +19,7 @@ class Celda:
 	def check_padre_izq(self):
 		if(self.estaLlena()):
 			if(self.padre_izq.estaLlena()):
-				if(!(self.padre_izq.hijo_izq.estaLlena())):
+				if(self.padre_izq.hijo_izq.estaLlena() == False):
 					self.padre_izq.hijo_izq.set_valor(self.padre_izq.valor-self.valor)
 					self.padre_izq.hijo_izq.check_celda()
 			
@@ -32,7 +32,7 @@ class Celda:
 	def check_padre_der(self):
 		if(self.estaLlena()):
 			if(self.padre_der.estaLlena()):
-				if(!(self.padre_der.hijo_der.estaLlena())):
+				if(self.padre_der.hijo_der.estaLlena() == False):
 					self.padre_der.hijo_der.set_valor(self.padre_der.valor-self.valor)
 					self.padre_der.hijo_der.check_celda()
 			
@@ -45,17 +45,17 @@ class Celda:
 	def check_hijos(self):
 		if(self.estaLlena()):
 			if(self.hijo_der.estaLlena()):
-				if(!(self.hijo_izq.estaLlena())):
+				if(self.hijo_izq.estaLlena() == False):
 					self.hijo_izq.set_valor(self.valor-self.hijo_der.valor)
 					self.hijo_izq.check_celda()
-			else
+			else:
 				if(self.hijo_izq.estaLlena()):
 					self.hijo_der.set_valor(self.valor-self.hijo_izq.valor)
 					self.hijo_der.check_celda()				
 	
 	def corregir_celda(self):
 		if(self.estaLlena()):
-			if(self.hijo_izq.estaLlena() && self.hijo_der.estaLlena()):
+			if(self.hijo_izq.estaLlena() and self.hijo_der.estaLlena()):
 				if(self.valor == self.hijo_izq.valor + self.hijo_der.valor ):
 					return 1
 					
@@ -113,7 +113,7 @@ class Celda_Abajo (Celda):
   		self.check_padre_izq()
   		self.check_padre_der()
   		
-  	def corregir_celda(self):
+	def corregir_celda(self):
 		if(self.estaLlena()):
 			return 1
 		else:
@@ -128,7 +128,7 @@ class Celda_Abajo_Izq (Celda):
 	def check_celda (self):
   		self.check_padre_der()
   		
-  	def corregir_celda(self):
+	def corregir_celda(self):
 		if(self.estaLlena()):
 			return 1
 		else:
@@ -155,7 +155,7 @@ class Celda_Abajo_Der (Celda):
 			
 			
 class Piramide:
-    def __init__(self):
+	def __init__(self):
 		self.checksum = 0
 		self.celda00 = Celda_Sup()
 		self.celda10 = Celda_Izq()
@@ -201,8 +201,8 @@ class Piramide:
 		self.celda54.set_parientes(self.celda43, self.celda44)
 		self.celda55.set_parientes(self.celda44)
 
-    def control (self):
-        self.celda00.check_celda()
+	def controlar (self):
+	        self.celda00.check_celda()
 		self.celda10.check_celda()
 		self.celda11.check_celda()
 		self.celda20.check_celda()
@@ -224,8 +224,8 @@ class Piramide:
 		self.celda54.check_celda()
 		self.celda55.check_celda()
 
-    def corregir (self):
-        self.checksum= self.checksum + self.celda00.corregir_celda()
+	def corregir (self):
+	        self.checksum= self.checksum + self.celda00.corregir_celda()
 		self.checksum= self.checksum + self.celda10.corregir_celda()
 		self.checksum= self.checksum + self.celda11.corregir_celda()
 		self.checksum= self.checksum + self.celda20.corregir_celda()
@@ -254,7 +254,7 @@ class Piramide:
 			
 			
 	def set_valores(self):
-	    self.celda00.set_valor(0)
+		self.celda00.set_valor(0)
 		self.celda10.set_valor(0)
 		self.celda11.set_valor(0)
 		self.celda20.set_valor(0)
@@ -285,7 +285,7 @@ class Juego:
         Pyramid.set_valores()
         
     def jugar(self):
-        self.Pyramid.control()
+        self.Pyramid.controlar()
         if(self.Pyramid.corregir() ):
             print "Anduvo :D"
         else
