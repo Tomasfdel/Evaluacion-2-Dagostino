@@ -41,14 +41,15 @@ class Celda:
 					self.padre_der.set_valor(self.padre_der.hijo_der.valor+self.valor)
 					self.padre_der.check_celda()
 						
+						
 	def check_hijos(self):
 		if(self.estaLlena()):
-			if(self.hijo_der.estaLleno()):
-				if(!(self.hijo_izq.estaLleno())):
+			if(self.hijo_der.estaLlena()):
+				if(!(self.hijo_izq.estaLlena())):
 					self.hijo_izq.set_valor(self.valor-self.hijo_der.valor)
 					self.hijo_izq.check_celda()
 			else
-				if(self.hijo_izq.estaLleno()):
+				if(self.hijo_izq.estaLlena()):
 					self.hijo_der.set_valor(self.valor-self.hijo_izq.valor)
 					self.hijo_der.check_celda()				
 	
@@ -155,7 +156,7 @@ class Celda_Abajo_Der (Celda):
 			
 class Piramide:
     def __init__(self):
-		self.checksum=0
+		self.checksum = 0
 		self.celda00 = Celda_Sup()
 		self.celda10 = Celda_Izq()
 		self.celda11 = Celda_Der()
@@ -187,7 +188,7 @@ class Piramide:
 		self.celda30.set_parientes(self.celda20, self.celda40, self.celda41)
 		self.celda31.set_parientes(self.celda20, self.celda21, self.celda41, self.celda42)
 		self.celda32.set_parientes(self.celda21, self.celda22, self.celda42, self.celda43)
-		self.celda33.set_parientes(self.celda33, self.celda43, self.celda44)
+		self.celda33.set_parientes(self.celda22, self.celda43, self.celda44)
 		self.celda40.set_parientes(self.celda30, self.celda50, self.celda51)
 		self.celda41.set_parientes(self.celda30, self.celda31, self.celda51, self.celda52)
 		self.celda42.set_parientes(self.celda31, self.celda32, self.celda52, self.celda53)
@@ -246,7 +247,7 @@ class Piramide:
 		self.checksum= self.checksum + self.celda54.corregir_celda()
 		self.checksum= self.checksum + self.celda55.corregir_celda()
 		
-		if(self.checksum==21):
+		if(self.checksum == 21):
 			return True
 		else:
 			return False 
