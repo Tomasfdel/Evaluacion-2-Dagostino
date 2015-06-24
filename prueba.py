@@ -202,7 +202,7 @@ class Piramide:
 		self.celda55.set_parientes(self.celda44)
 
 	def controlar (self):
-	        self.celda00.check_celda()
+		self.celda00.check_celda()
 		self.celda10.check_celda()
 		self.celda11.check_celda()
 		self.celda20.check_celda()
@@ -225,7 +225,7 @@ class Piramide:
 		self.celda55.check_celda()
 
 	def corregir (self):
-	        self.checksum= self.checksum + self.celda00.corregir_celda()
+		self.checksum= self.checksum + self.celda00.corregir_celda()
 		self.checksum= self.checksum + self.celda10.corregir_celda()
 		self.checksum= self.checksum + self.celda11.corregir_celda()
 		self.checksum= self.checksum + self.celda20.corregir_celda()
@@ -254,42 +254,42 @@ class Piramide:
 			
 			
 	def set_valores(self):
-		self.celda00.set_valor(0)
-		self.celda10.set_valor(0)
-		self.celda11.set_valor(0)
-		self.celda20.set_valor(0)
-		self.celda21.set_valor(0)
-		self.celda22.set_valor(0)
-		self.celda30.set_valor(0)
-		self.celda31.set_valor(0)
-		self.celda32.set_valor(0)
-		self.celda33.set_valor(0)
-		self.celda40.set_valor(0)
-		self.celda41.set_valor(0)
-		self.celda42.set_valor(0)
-		self.celda43.set_valor(0)
-		self.celda44.set_valor(0)
-		self.celda50.set_valor(0)
-		self.celda51.set_valor(0)
-		self.celda52.set_valor(0)
-		self.celda53.set_valor(0)
-		self.celda54.set_valor(0)
-		self.celda55.set_valor(0)
+		#self.celda00.set_valor(0)
+		#self.celda10.set_valor(0)
+		#self.celda11.set_valor(0)
+		#self.celda20.set_valor(0)
+		#self.celda21.set_valor(0)
+		#self.celda22.set_valor(0)
+		#self.celda30.set_valor(0)
+		#self.celda31.set_valor(0)
+		#self.celda32.set_valor(0)
+		#self.celda33.set_valor(0)
+		#self.celda40.set_valor(0)
+		#self.celda41.set_valor(0)
+		#self.celda42.set_valor(0)
+		#self.celda43.set_valor(0)
+		#self.celda44.set_valor(0)
+		#self.celda50.set_valor(0)
+		#self.celda51.set_valor(0)
+		#self.celda52.set_valor(0)
+		#self.celda53.set_valor(0)
+		#self.celda54.set_valor(0)
+		#self.celda55.set_valor(0)
 			
 	
 			
 			
 class Juego:
-    def __init__(self):
-        self.Pyramid = Piramide()
-        Pyramid.set_valores()
+	def __init__(self):
+		self.Pyramid = Piramide()
+		self.Pyramid.set_valores()
         
-    def jugar(self):
-        self.Pyramid.controlar()
-        if(self.Pyramid.corregir() ):
-            print "Anduvo :D"
-        else
-            print "No anduvo D:"
+	def jugar(self):
+		self.Pyramid.controlar()
+		if(self.Pyramid.corregir() ):
+			print ("Anduvo :D")
+		else:
+			print ("No anduvo D:")
             
             
             
