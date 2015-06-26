@@ -65,6 +65,14 @@ class Celda:
 		self.valor = n
 		self.llena = True
 
+		
+	def ingresar_valor(self, n, m):
+			x=input("Ingrese el numero de la celda " + str(m) + " de la fila " + str(n) + ": ")
+			if(x>=0):
+				self.set_valor(x)
+
+			
+		
 	def estaLlena (self):
 		return self.llena
 
@@ -254,30 +262,47 @@ class Piramide:
 			
 			
 	def set_valores(self):
-		self.celda00.set_valor(58)
-		#self.celda10.set_valor(0)
-		#self.celda11.set_valor(0)
-		#self.celda20.set_valor(0)
-		#self.celda21.set_valor(0)
-		#self.celda22.set_valor(0)
-		#self.celda30.set_valor(0)
-		self.celda31.set_valor(6)
-		#self.celda32.set_valor(0)
-		self.celda33.set_valor(10)
-		self.celda40.set_valor(7)
-		#self.celda41.set_valor(0)
-		#self.celda42.set_valor(0)
-		#self.celda43.set_valor(0)
-		self.celda44.set_valor(5)
-		#self.celda50.set_valor(2)
-		#self.celda51.set_valor(3)
-		self.celda52.set_valor(0)
-		self.celda53.set_valor(945)
-		#self.celda54.set_valor(3)
-		#self.celda55.set_valor()
+		self.celda00.ingresar_valor(0,0)
+		self.celda10.ingresar_valor(1,0)
+		self.celda11.ingresar_valor(1,1)
+		self.celda20.ingresar_valor(2,0)
+		self.celda21.ingresar_valor(2,1)
+		self.celda22.ingresar_valor(2,2)
+		self.celda30.ingresar_valor(3,0)
+		self.celda31.ingresar_valor(3,1)
+		self.celda32.ingresar_valor(3,2)
+		self.celda33.ingresar_valor(3,3)
+		self.celda40.ingresar_valor(4,0)
+		self.celda41.ingresar_valor(4,1)
+		self.celda42.ingresar_valor(4,2)
+		self.celda43.ingresar_valor(4,3)
+		self.celda44.ingresar_valor(4,4)
+		self.celda50.ingresar_valor(5,0)
+		self.celda51.ingresar_valor(5,1)
+		self.celda52.ingresar_valor(5,2)
+		self.celda53.ingresar_valor(5,3)
+		self.celda54.ingresar_valor(5,4)
+		self.celda55.ingresar_valor(5,5)
 			
+	def mostrar_celdas (self):
+		print("                         -------")
+		print("			|" + str(self.celda00.valor) +"	|")
+		print("                     ----------------")
+		print("	            |	" + str(self.celda10.valor) + "|	" + str(self.celda11.valor) + "|")
+		print("                 -----------------------")
+		print("		|" + str(self.celda20.valor) + "	|" + str(self.celda21.valor) + "	|" + str(self.celda22.valor) + "	|")
+		print("             --------------------------------")
+		print("	    |	" + str(self.celda30.valor) + "|	" + str(self.celda31.valor) + "|	" + str(self.celda32.valor) + "|	" + str(self.celda33.valor) + "|")
+		print("         ---------------------------------------")
+		print("	|" + str(self.celda40.valor) + "	|" + str(self.celda41.valor) + "	|" + str(self.celda42.valor) + "	|" + str(self.celda43.valor) + "	|" + str(self.celda44.valor) + "	|")
+		print("     -----------------------------------------------")
+		print("    |	" + str(self.celda50.valor) + "|	" + str(self.celda51.valor) + "|	" + str(self.celda52.valor) + "|	" + str(self.celda53.valor) + "|	" + str(self.celda54.valor) + "|	" + str(self.celda55.valor) + "|")
+		print("    -------------------------------------------------")
 	
 			
+
+
+
 			
 class Juego:
 	def __init__(self):
@@ -287,9 +312,9 @@ class Juego:
 	def jugar(self):
 		self.Pyramid.controlar()
 		if(self.Pyramid.corregir() ):
-			print ("Anduvo :D")
+			self.Pyramid.mostrar_celdas()
 		else:
-			print ("No anduvo D:")
+			print ("ERROR: El caso ingresado es irresoluble")
             
             
             
